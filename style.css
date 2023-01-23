@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.district{
+    transition: linear 0.5s;
+}
+.district:hover{
+transform: scale(1.1);
+transition: linear 0.5s;
+}

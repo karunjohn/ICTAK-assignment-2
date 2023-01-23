@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Tourism</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- responsive navigation bar -->
+    <nav class="navbar navbar-expand-lg" style="background-color:rgba(205, 216, 216, 0.782);">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- menu  -->
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+            <!-- logo  -->
+            <a class="navbar-brand" href="index.html"><img src="logo.png" alt="logo" width="50px"></a>
+            <!-- <h4 style="margin-right: auto;"> Kerala Tourism
+            </h4> -->
+          
+            <!-- menu content  -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="destination.html">Destinations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signup.html">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+              </li>
+            </ul>
+
+           <!-- title  -->
+          <h4 style="margin-right: auto; color: rgba(0, 0, 0, 0.719);" > Kerala Tourism
+          </h4>
+
+            <!-- search -->
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <!-- slider carousel-->
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./banners/banner 1.jpg" class="d-block w-100" alt="banner">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Kathakali</h2>
+              <p style="font-size: 16px;">Ancient dance form of kerala</p>
+            </div>
+      
+          </div>
+          <div class="carousel-item">
+            <img src="./banners/banner 2.jpg" class="d-block w-100" alt="banner">
+            <!-- <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>       -->
+          </div>
+          <div class="carousel-item">
+            <img src="./banners/banner 3.png" class="d-block w-100" alt="banner">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Kovalam</h2>
+              <p style="font-size: 16px;">Kovalam is an internationally renowned beach with three adjacent crescent beaches.</p>
+            </div>
+      
+          </div>
+          <div class="carousel-item">
+            <img src="./banners/banner 4.png" class="d-block w-100" alt="banner">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Munnar</h2>
+              <p style="font-size: 16px;"> Sprawling tea plantations surround the serene hills of Munnar</p>
+            </div>      
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <br>
+      <!-- top destination -->
+      <div class="container">
+        <h4 style="padding-bottom: 4px;">Top Destinations </h4>
+                <!-- top destinations grid  -->
+      <div class="card-group">
+        <div class="card">
+          <img src="./top destination/Varkala.jpg" class="card-img-top" alt="Varkala">
+          <div class="card-body">
+            <h5 class="card-title">Varkala</h5>
+            <p class="card-text">Varkala, a calm and quiet hamlet, lies on the outskirts of Thiruvananthapuram district. It has several tourist attractions that include a beautiful beach, a 2000-year-old Vishnu Temple and the Ashramam - Sivagiri Mutt a little distance from the beach.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"><a href="">Read more</a> </small>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./top destination/wayanad.jpg" class="card-img-top" alt="wayanad">
+          <div class="card-body">
+            <h5 class="card-title">Wayanad</h5>
+            <p class="card-text">Wayanad is a little piece of paradise in Kerala. Best known for its wildlife reserves and the Nilgiri Mountain Range of the Western Ghats, the terrain here is known to hide within itself secret trails and treks that are enough to tickle any adventurer. </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"><a href="">
+              Read more
+            </a></small>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./top destination/kochi.jpg" class="card-img-top" alt="fort kochi">
+          <div class="card-body">
+            <h5 class="card-title">Fort Kochi</h5>
+            <p class="card-text">Set foot into Fort Kochi and you will be instantly transported to a different time period. This place is steeped in the history and culture of all who have occupied it through the ages. Its roots and essence are unique in its diversity.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"><a href="">Read more</a></small>
+          </div>
+        </div>
+      </div>
+     </div>
+     <footer style="margin-top: 30px;">
+      <div class="container-fluid" style="background-color:rgba(205, 216, 216, 0.782); text-align: right;"> Kerala Tourism @ ICTAK </div>
+      
+     </footer>
+      
+     
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
