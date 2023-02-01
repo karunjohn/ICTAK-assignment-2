@@ -12,3 +12,6 @@ transition: linear 0.5s;
 .card-body a{
     text-decoration: none;
 }
+.errorMessage {
+    color: red;
+}
