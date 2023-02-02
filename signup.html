@@ -85,13 +85,13 @@
                 <form>
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Enter your full name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Full name" onkeyup="validateFullName()">
+                        <input type="text" class="form-control" id="fullName" placeholder="Full name" onkeyup="validateFullName()" required>
                         <span class="errorMessage" id="fullNameError"></span>
                       </div>
                       <!-- for date of birth  -->
                       <div class="mb-3">
                         <label for="dateOfBirth" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="dateOfBirth">
+                        <input type="date" class="form-control" id="dateOfBirth" required>
                         <span id="dateOfBirthError" class="errorMessage"></span>
                     
                       </div>
@@ -99,29 +99,29 @@
                       <div class="mb-3">
                         <label for="gender" class="form-label">Gender</label>
                         <br>
-                        <input type="radio" id="male" name="gender" value="male">
+                        <input type="radio" id="male" name="gender" value="male" required>
                         <label for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value="female">
+                        <input type="radio" id="female" name="gender" value="female" required>
                         <label for="css">Female</label>
                       </div>
                       <!-- for Phone number                              -->
                     <div class="mb-3">
                       <label for="phoneNumber" class="form-label">Phone number</label>
                       <input type="tel" class="form-control" id="phoneNumber" name="phone" 
-                       placeholder=" Enter 10 digits phone number" onkeyup="validatePhoneNumber()">
+                       placeholder=" Enter 10 digits phone number" onkeyup="validatePhoneNumber()" required>
                        <span class="errorMessage" id="phoneNumberError"></span>
                     </div>
                       <!-- for email address -->
                     <div class="mb-3">
                       <label for="emailAddress" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Email Address" onkeyup="validateEmailAddress()">
+                      <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Email Address" onkeyup="validateEmailAddress()" required>
                       <span class="errorMessage" id="emailAddressError"></span>
                       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <!-- for passwords -->
                     <div class="mb-3">
                       <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="password" placeholder="Enter your desired password" onkeyup="validatePassword()">
+                      <input type="password" class="form-control" id="password" placeholder="Enter your desired password" onkeyup="validatePassword()" required>
                       <meter max="3" id="password-strength-meter"></meter>
                       <span class="errorMessage" id="passwordError"></span>
                     </div>
