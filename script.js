@@ -7,19 +7,6 @@ let validationStates = {
   password: false,
 };
 
-let enableSubmitIfAllValid = function () {
-  if (
-    validationStates.fullName &&
-    validationStates.phoneNumber &&
-    validationStates.emailAddress &&
-    validationStates.password
-  ) {
-    signupButton.disabled = false;
-  } else {
-    signupButton.disabled = true;
-  }
-};
-
 // validation for name
 let validateFullName = function () {
   let fullNameTrimmed = document.getElementById("fullName").value.trim();
@@ -111,8 +98,6 @@ let validateEmailAddress = function () {
 let validatePassword = function () {
   let passwordTrimmed = document.getElementById("password").value.trim();
   // console.log(passwordTrimmed);
-
-  var meter = document.getElementById("password-strength-meter");
 
   let errorMessage = "";
 
