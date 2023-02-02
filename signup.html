@@ -85,13 +85,15 @@
                 <form>
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Enter your full name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Full Name" onkeyup="validateFullName()">
+                        <input type="text" class="form-control" id="fullName" placeholder="Full name" onkeyup="validateFullName()">
                         <span class="errorMessage" id="fullNameError"></span>
                       </div>
                       <!-- for date of birth  -->
                       <div class="mb-3">
                         <label for="dateOfBirth" class="form-label">Date of Birth</label>
                         <input type="date" class="form-control" id="dateOfBirth">
+                        <span id="dateOfBirthError" class="errorMessage"></span>
+                    
                       </div>
                       <!-- for gender -->
                       <div class="mb-3">
@@ -106,21 +108,21 @@
                     <div class="mb-3">
                       <label for="phoneNumber" class="form-label">Phone number</label>
                       <input type="tel" class="form-control" id="phoneNumber" name="phone" 
-                       placeholder="Phone Number" onkeyup="validatePhoneNumber()">
-                       <span id="phoneNumberError"></span>
+                       placeholder=" Enter 10 digits phone number" onkeyup="validatePhoneNumber()">
+                       <span class="errorMessage" id="phoneNumberError"></span>
                     </div>
                       <!-- for email address -->
                     <div class="mb-3">
                       <label for="emailAddress" class="form-label">Email address</label>
                       <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Email Address" onkeyup="validEmailAddress()">
-                      <span id="emailAddressError"></span>
+                      <span class="errorMessage" id="emailAddressError"></span>
                       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <!-- for passwords -->
                     <div class="mb-3">
                       <label for="password" class="form-label">Password</label>
                       <input type="password" class="form-control" id="password" placeholder="Password" onkeyup="validPassword()">
-                      <span id="passwordError"></span>
+                      <span class="errorMessage" id="passwordError"></span>
                     </div>
                     <!-- for submit button -->
                     <button type="submit" class="btn btn-primary">Sign Up</button>
