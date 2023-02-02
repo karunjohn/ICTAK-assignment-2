@@ -69,24 +69,35 @@ let validatePassword = function () {
 
   let errorMessage = "";
 
-  const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g;
-  const weakRegex = /^.{8,}$/g;
+  // Regex for passing password input
+  const mediumRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g;
+  const weakCharRegex = /^.{8,}$/g;
+  const strongCharRegex = /^(?=.*(`|!|@|#|\$|%|\^|&|\*|\(|\)|_|-|\+))(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g
 
   if (passwordTrimmed === "") {
     errorMessage =
-      '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty ';
-  } else if (!passwordTrimmed.match(regex)) {
-    if(passwordTrimmed.match(weakRegex))
+      '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty. ';
+  } else if (!passwordTrimmed.match(mediumRegex)) {
+    if(passwordTrimmed.match(weakCharRegex))
     {
-      errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Orange password';
+      errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Weak: Add one upper case, one lower case and one number.';
     }
     else
     {
-      errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid password';
+      errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Weak: Minimum 8 characters required.';
     }
   } else {
-    errorMessage =
-      '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
+    // Passing case of passwords
+    if(passwordTrimmed.match(strongCharRegex))
+    {
+      errorMessage =
+      '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i> <span style="color: seagreen;">Strong</span>';
+    }
+    else
+    {
+      errorMessage =
+      '<i class="fa-regular fa-circle-check" style="color: #ff6500;"></i> <span style="color: #ff6500;">Medium: Add a special character(`!@#$%^&*()_-+) to make the password strong.</span>';
+    }
   }
 
   document.getElementById("passwordError").innerHTML = errorMessage;
