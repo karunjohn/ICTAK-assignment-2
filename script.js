@@ -52,13 +52,42 @@ let validateEmailAddress = function () {
 
   if (emailAddressTrimmed === "") {
     errorMessage =
-      '<i class="fa-regular fa-circle-xmark"></i> Name cannot be empty ';
+      '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty ';
   } else if (!emailAddressTrimmed.match(regex)) {
-    errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid name';
+    errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid email address';
   } else {
     errorMessage =
       '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
   }
 
   document.getElementById("emailAddressError").innerHTML = errorMessage;
+};
+//  password validation
+let validatePassword = function () {
+  let passwordTrimmed = document.getElementById("password").value.trim();
+  console.log(passwordTrimmed);
+
+  let errorMessage = "";
+
+  const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g;
+  const weakRegex = /^.{8,}$/g;
+
+  if (passwordTrimmed === "") {
+    errorMessage =
+      '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty ';
+  } else if (!passwordTrimmed.match(regex)) {
+    if(passwordTrimmed.match(weakRegex))
+    {
+      errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Orange password';
+    }
+    else
+    {
+      errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid password';
+    }
+  } else {
+    errorMessage =
+      '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
+  }
+
+  document.getElementById("passwordError").innerHTML = errorMessage;
 };
