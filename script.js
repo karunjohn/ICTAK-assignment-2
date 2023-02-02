@@ -41,3 +41,24 @@ let validatePhoneNumber = function () {
 
   document.getElementById("phoneNumberError").innerHTML = errorMessage;
 };
+// validation for email 
+let validateEmailAddress = function () {
+  let emailAddressTrimmed = document.getElementById("emailAddress").value.trim();
+  console.log(emailAddressTrimmed);
+
+  let errorMessage = "";
+
+  const regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+
+  if (emailAddressTrimmed === "") {
+    errorMessage =
+      '<i class="fa-regular fa-circle-xmark"></i> Name cannot be empty ';
+  } else if (!emailAddressTrimmed.match(regex)) {
+    errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid name';
+  } else {
+    errorMessage =
+      '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
+  }
+
+  document.getElementById("emailAddressError").innerHTML = errorMessage;
+};
