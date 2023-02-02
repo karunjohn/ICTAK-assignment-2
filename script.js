@@ -1,5 +1,25 @@
 let signupButton = document.getElementById("signup-button");
 
+let validationStates = {
+  fullName: false,
+  phoneNumber: false,
+  emailAddress: false,
+  password: false,
+};
+
+let enableSubmitIfAllValid = function () {
+  if (
+    validationStates.fullName &&
+    validationStates.phoneNumber &&
+    validationStates.emailAddress &&
+    validationStates.password
+  ) {
+    signupButton.disabled = false;
+  } else {
+    signupButton.disabled = true;
+  }
+};
+
 // validation for name
 let validateFullName = function () {
   let fullNameTrimmed = document.getElementById("fullName").value.trim();
@@ -12,14 +32,17 @@ let validateFullName = function () {
   if (fullNameTrimmed === "") {
     errorMessage =
       '<i class="fa-regular fa-circle-xmark"></i> Name cannot be empty ';
-      signupButton.disabled = true;
+    validationStates.fullName = false;
+    signupButton.disabled = true;
   } else if (!fullNameTrimmed.match(regex)) {
     errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid name';
+    validationStates.fullName = false;
     signupButton.disabled = true;
   } else {
     errorMessage =
       '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
-      signupButton.disabled = false;
+    validationStates.fullName = true;
+    enableSubmitIfAllValid();
   }
 
   document.getElementById("fullNameError").innerHTML = errorMessage;
@@ -32,43 +55,54 @@ let validatePhoneNumber = function () {
 
   let errorMessage = "";
 
-  const regex = /^((\d{10})|((\d{3})(-)(\d{3})(-)(\d{4}))|((\d{3})(\.)(\d{3})(\.)(\d{4}))|((\d{3})( )(\d{3})( )(\d{4})))$/g;
+  const regex =
+    /^((\d{10})|((\d{3})(-)(\d{3})(-)(\d{4}))|((\d{3})(\.)(\d{3})(\.)(\d{4}))|((\d{3})( )(\d{3})( )(\d{4})))$/g;
 
   if (phoneNumberTrimmed === "") {
     errorMessage =
       '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty ';
-      signupButton.disabled = true;
+    validationStates.phoneNumber = false;
+    signupButton.disabled = true;
   } else if (!phoneNumberTrimmed.match(regex)) {
     errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid format';
+    validationStates.phoneNumber = false;
     signupButton.disabled = true;
   } else {
     errorMessage =
       '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
-      signupButton.disabled = false;
+    validationStates.phoneNumber = true;
+    enableSubmitIfAllValid();
   }
 
   document.getElementById("phoneNumberError").innerHTML = errorMessage;
 };
-// validation for email 
+// validation for email
 let validateEmailAddress = function () {
-  let emailAddressTrimmed = document.getElementById("emailAddress").value.trim();
+  let emailAddressTrimmed = document
+    .getElementById("emailAddress")
+    .value.trim();
   console.log(emailAddressTrimmed);
 
   let errorMessage = "";
 
-  const regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+  const regex =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
   if (emailAddressTrimmed === "") {
     errorMessage =
       '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty ';
-      signupButton.disabled = true;
+    validationStates.emailAddress = false;
+    signupButton.disabled = true;
   } else if (!emailAddressTrimmed.match(regex)) {
-    errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid email address';
+    errorMessage =
+      '<i class="fa-regular fa-circle-xmark"></i> Invalid email address';
+    validationStates.emailAddress = false;
     signupButton.disabled = true;
   } else {
     errorMessage =
       '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
-      signupButton.disabled = false;
+    validationStates.emailAddress = true;
+    enableSubmitIfAllValid();
   }
 
   document.getElementById("emailAddressError").innerHTML = errorMessage;
@@ -78,45 +112,44 @@ let validatePassword = function () {
   let passwordTrimmed = document.getElementById("password").value.trim();
   // console.log(passwordTrimmed);
 
-  var meter = document.getElementById('password-strength-meter');
-  
-  let errorMessage = "";
+  var meter = document.getElementById("password-strength-meter");
 
+  let errorMessage = "";
 
   // Regex for passing password input
   const mediumRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g;
   const weakCharRegex = /^.{8,}$/g;
-  const strongCharRegex = /^(?=.*(`|!|@|#|\$|%|\^|&|\*|\(|\)|_|-|\+))(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g
+  const strongCharRegex =
+    /^(?=.*(`|!|@|#|\$|%|\^|&|\*|\(|\)|_|-|\+))(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g;
 
   if (passwordTrimmed === "") {
     errorMessage =
       '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty. ';
-      signupButton.disabled = true;
+    validationStates.password = false;
+    signupButton.disabled = true;
   } else if (!passwordTrimmed.match(mediumRegex)) {
     signupButton.disabled = true;
-    if(passwordTrimmed.match(weakCharRegex))
-    {
-      errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Weak: Add one upper case, one lower case and one number.';
+    validationStates.password = false;
+    if (passwordTrimmed.match(weakCharRegex)) {
+      errorMessage =
+        '<i class="fa-regular fa-circle-xmark"></i> Weak: Add one upper case, one lower case and one number.';
       meter.value = 1;
-    }
-    else
-    {
-      errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Weak: Minimum 8 characters required.';
+    } else {
+      errorMessage =
+        '<i class="fa-regular fa-circle-xmark"></i> Weak: Minimum 8 characters required.';
       meter.value = 1;
     }
   } else {
     // Passing case of passwords
-    signupButton.disabled = false;
-    if(passwordTrimmed.match(strongCharRegex))
-    {
+    validationStates.password = true;
+    enableSubmitIfAllValid();
+    if (passwordTrimmed.match(strongCharRegex)) {
       errorMessage =
-      '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i> <span style="color: seagreen;">Strong</span>';
+        '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i> <span style="color: seagreen;">Strong</span>';
       meter.value = 3;
-    }
-    else
-    {
+    } else {
       errorMessage =
-      '<i class="fa-regular fa-circle-check" style="color: #ff6500;"></i> <span style="color: #ff6500;">Medium: Add a special character(`!@#$%^&*()_-+) to make the password strong.</span>';
+        '<i class="fa-regular fa-circle-check" style="color: #ff6500;"></i> <span style="color: #ff6500;">Medium: Add a special character(`!@#$%^&*()_-+) to make the password strong.</span>';
       meter.value = 2;
     }
   }
