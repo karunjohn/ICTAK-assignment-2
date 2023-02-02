@@ -65,9 +65,12 @@ let validateEmailAddress = function () {
 //  password validation
 let validatePassword = function () {
   let passwordTrimmed = document.getElementById("password").value.trim();
-  console.log(passwordTrimmed);
+  // console.log(passwordTrimmed);
 
+  var meter = document.getElementById('password-strength-meter');
+  
   let errorMessage = "";
+
 
   // Regex for passing password input
   const mediumRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g;
@@ -81,10 +84,12 @@ let validatePassword = function () {
     if(passwordTrimmed.match(weakCharRegex))
     {
       errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Weak: Add one upper case, one lower case and one number.';
+      meter.value = 1;
     }
     else
     {
       errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Weak: Minimum 8 characters required.';
+      meter.value = 1;
     }
   } else {
     // Passing case of passwords
@@ -92,11 +97,13 @@ let validatePassword = function () {
     {
       errorMessage =
       '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i> <span style="color: seagreen;">Strong</span>';
+      meter.value = 3;
     }
     else
     {
       errorMessage =
       '<i class="fa-regular fa-circle-check" style="color: #ff6500;"></i> <span style="color: #ff6500;">Medium: Add a special character(`!@#$%^&*()_-+) to make the password strong.</span>';
+      meter.value = 2;
     }
   }
 
