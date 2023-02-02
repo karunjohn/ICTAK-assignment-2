@@ -1,3 +1,5 @@
+let signupButton = document.getElementById("signup-button");
+
 // validation for name
 let validateFullName = function () {
   let fullNameTrimmed = document.getElementById("fullName").value.trim();
@@ -10,11 +12,14 @@ let validateFullName = function () {
   if (fullNameTrimmed === "") {
     errorMessage =
       '<i class="fa-regular fa-circle-xmark"></i> Name cannot be empty ';
+      signupButton.disabled = true;
   } else if (!fullNameTrimmed.match(regex)) {
     errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid name';
+    signupButton.disabled = true;
   } else {
     errorMessage =
       '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
+      signupButton.disabled = false;
   }
 
   document.getElementById("fullNameError").innerHTML = errorMessage;
@@ -32,11 +37,14 @@ let validatePhoneNumber = function () {
   if (phoneNumberTrimmed === "") {
     errorMessage =
       '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty ';
+      signupButton.disabled = true;
   } else if (!phoneNumberTrimmed.match(regex)) {
     errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid format';
+    signupButton.disabled = true;
   } else {
     errorMessage =
       '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
+      signupButton.disabled = false;
   }
 
   document.getElementById("phoneNumberError").innerHTML = errorMessage;
@@ -53,11 +61,14 @@ let validateEmailAddress = function () {
   if (emailAddressTrimmed === "") {
     errorMessage =
       '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty ';
+      signupButton.disabled = true;
   } else if (!emailAddressTrimmed.match(regex)) {
     errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Invalid email address';
+    signupButton.disabled = true;
   } else {
     errorMessage =
       '<i class="fa-regular fa-circle-check" style="color: seagreen;"></i>';
+      signupButton.disabled = false;
   }
 
   document.getElementById("emailAddressError").innerHTML = errorMessage;
@@ -80,7 +91,9 @@ let validatePassword = function () {
   if (passwordTrimmed === "") {
     errorMessage =
       '<i class="fa-regular fa-circle-xmark"></i> Field cannot be empty. ';
+      signupButton.disabled = true;
   } else if (!passwordTrimmed.match(mediumRegex)) {
+    signupButton.disabled = true;
     if(passwordTrimmed.match(weakCharRegex))
     {
       errorMessage = '<i class="fa-regular fa-circle-xmark"></i> Weak: Add one upper case, one lower case and one number.';
@@ -93,6 +106,7 @@ let validatePassword = function () {
     }
   } else {
     // Passing case of passwords
+    signupButton.disabled = false;
     if(passwordTrimmed.match(strongCharRegex))
     {
       errorMessage =
