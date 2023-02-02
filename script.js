@@ -27,7 +27,7 @@ let validatePhoneNumber = function () {
 
   let errorMessage = "";
 
-  const regex = /^(\d{10})|((\d{3})(-)(\d{3})(-)(\d{4}))|((\d{3})(\.)(\d{3})(\.)(\d{4}))|((\d{3})( )(\d{3})( )(\d{4}))$/g;
+  const regex = /^((\d{10})|((\d{3})(-)(\d{3})(-)(\d{4}))|((\d{3})(\.)(\d{3})(\.)(\d{4}))|((\d{3})( )(\d{3})( )(\d{4})))$/g;
 
   if (phoneNumberTrimmed === "") {
     errorMessage =
