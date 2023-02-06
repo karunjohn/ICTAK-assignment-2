@@ -45,3 +45,19 @@ meter[value="3"]::-webkit-meter-optimum-value { background: seagreen; }
 meter[value="1"]::-moz-meter-bar { background: red; }
 meter[value="2"]::-moz-meter-bar { background: #ff6500; }
 meter[value="3"]::-moz-meter-bar { background: seagreen; }
+
+/* for zoom animation */
+#zoom 
+{
+   animation-name: zoom;
+     
+  }
+  
+  @keyframes zoom {
+    0%{
+      transform: scale(1);
+    }
+  100% {
+      transform: scale(1.5);
+    }
+  }
